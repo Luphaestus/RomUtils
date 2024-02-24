@@ -73,18 +73,18 @@ Flash() {
 DoingFlags=false
 
 
-while getopts ":cps:d:" opt; do
+while getopts ":cps:d" opt; do
     case $opt in
         p)
             DoingFlags=true
-            filename="${@: -1}"  # Use the last argument as the filename
+            filename="${@: -1}"  
             numeric_permissions=$(stat -c "%a" "$filename")
             echo "Numeric permissions for $filename: $numeric_permissions"
             ;;
         s)
             DoingFlags=true
-            filename="${@: -1}"  # Use the last argument as the filename
-            shift $((OPTIND - 1))  # Move the option arguments out of the way
+            filename="${@: -1}"  
+            shift $((OPTIND - 1)) 
             permissions="$OPTARG"
             if [[ ! "$permissions" =~ ^[0-7]{3}$ ]]; then
                 echo "Invalid permissions value: $permissions. It must be a three-digit octal number." >&2
