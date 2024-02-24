@@ -103,61 +103,18 @@ while getopts ":cps:d" opt; do
             rm -rf "$folder_name"
             cp -r ./zipTemplate "$folder_name"
 
+            declare -a image_array=("vendor" "system" "product" "odm" "prism" "optics")
+            for img in "${image_array[@]}"; do
+                img2simg "./$img.img" "./$folder_name/$img.sparse"
+                echo 4 | img2sdat -o "./$folder_name/images" -p "$img" "./$folder_name/$img.sparse"
+                size=$(( $(wc -c < "./$img.img") + 10240 ))
+                rm "./$folder_name/$img.sparse"
+                brotli -q 5 "./$folder_name/images/$img.new.dat" -o "./$folder_name/images/$img.new.dat.br"
+                rm "./$folder_name/images/$img.new.dat"
+                echo "resize $img $size" >> "./$folder_name/shared/op_list"
+            done
 
-            img2simg ./vendor.img  ./"$folder_name"/vendor.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p vendor ./"$folder_name"/vendor.sparse
-            vendor_size=$(( $(wc -c < ./vendor.img) + 10240 ))
-            rm ./"$folder_name"/vendor.sparse
-            brotli -q 5 ./"$folder_name"/images/vendor.new.dat -o ./"$folder_name"/images/vendor.new.dat.br
-            rm ./"$folder_name"/images/vendor.new.dat
-
-            img2simg ./system.img ./"$folder_name"/system.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p system ./"$folder_name"/system.sparse
-            system_size=$(( $(wc -c < ./system.img) + 10240 ))
-            rm ./"$folder_name"/system.sparse
-            brotli -q 5 ./"$folder_name"/images/system.new.dat -o ./"$folder_name"/images/system.new.dat.br
-            rm ./"$folder_name"/images/system.new.dat
-
-            img2simg ./product.img ./"$folder_name"/product.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p product ./"$folder_name"/product.sparse
-            product_size=$(( $(wc -c < ./product.img) + 10240 ))
-            rm ./"$folder_name"/product.sparse
-            brotli -q 5 ./"$folder_name"/images/product.new.dat -o ./"$folder_name"/images/product.new.dat.br
-            rm ./"$folder_name"/images/product.new.dat
-
-            img2simg ./odm.img ./"$folder_name"/odm.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p odm ./"$folder_name"/odm.sparse
-            odm_size=$(( $(wc -c < ./odm.img) + 10240 ))
-            rm ./"$folder_name"/odm.sparse
-            brotli -q 5 ./"$folder_name"/images/odm.new.dat -o ./"$folder_name"/images/odm.new.dat.br
-            rm ./"$folder_name"/images/odm.new.dat
-
-            img2simg ./prism.img ./"$folder_name"/prism.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p prism ./"$folder_name"/prism.sparse
-            prism_size=$(( $(wc -c < ./prism.img) + 10240 ))
-            rm ./"$folder_name"/prism.sparse
-            brotli -q 5 ./"$folder_name"/images/prism.new.dat -o ./"$folder_name"/images/prism.new.dat.br
-            rm ./"$folder_name"/images/prism.new.dat
-
-            img2simg ./optics.img ./"$folder_name"/optics.sparse
-            echo 4 | img2sdat -o ./"$folder_name"/images -p optics ./"$folder_name"/optics.sparse
-            optics_size=$(( $(wc -c < ./optics.img) + 10240 ))
-            rm ./"$folder_name"/optics.sparse
-            brotli -q 5 ./"$folder_name"/images/optics.new.dat -o ./"$folder_name"/images/optics.new.dat.br
-            rm ./"$folder_name"/images/optics.new.dat
-
-            output_file="./$folder_name/shared/op_list"
-            echo "resize system $system_size" > "$output_file"
-            echo "resize vendor $vendor_size" >> "$output_file"
-            echo "resize odm $odm_size" >> "$output_file"
-            echo "resize product $product_size" >> "$output_file"
-
-
-
-            echo "File '$output_file' created successfully."
-
-
-            cd "$folder_name" && zip -r ../"$folder_name".zip ./* && cd -
+            cd "$folder_name" && zip -r "../$folder_name.zip" ./* && cd -
             paplay ./winsquare-6993.mp3
 
             ;;
