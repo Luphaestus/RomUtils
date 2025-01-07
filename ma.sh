@@ -5,7 +5,7 @@ process_file_p() {
     patch -p1 --verbose -t -N < "$file"
 }
 
-process_file_u() {
+process_file_d() {
     file="$1"
     outName="$2"
     filename=$(basename "$file")
@@ -75,8 +75,8 @@ case "$argument" in
     -p)
         process_file_p "$file"
         ;;
-    -u)
-        process_file_u "$file" "$outName"
+    -d)
+        process_file_d "$file" "$outName"
         ;;
     -c)
         process_file_c "$file" "$outName"
