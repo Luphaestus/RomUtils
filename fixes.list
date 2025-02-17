@@ -1,0 +1,74 @@
+sudo cp -a ../../Vulcan6.1/c/system/etc/floating_feature.xml           s20/system/etc/floating_feature.xml
+
+sudo cp -a ../../Vulcan6.1/c/system/cameradata                         s20/system/
+
+
+sudo adb push ../../Vulcan6.1/vulcans/system/lib/libstagefright.so              /system_root/system/lib/libstagefright.so
+sudo adb push ../../Vulcan6.1/vulcans/system/lib64/libstagefright.so            /system_root/system/lib64/libstagefright.so
+
+sudo adb push ../../Vulcan6.1/vulcans/system/lib/libvicom_conf.so               /system_root/system/lib/libvicom_conf.so
+sudo adb push ../../Vulcan6.1/vulcans/system/lib64/libvicom_conf.so             /system_root/system/lib64/libvicom_conf.so
+sudo adb push ../../Vulcan6.1/vulcans/system/lib64/libeden_wrapper_system.so    /system_root/system/lib64/libeden_wrapper_system.so
+sudo adb push ../../Vulcan6.1/vulcans/system/lib64/libsnap_aidl.snap.samsung.so /system_root/system/lib64/libsnap_aidl.snap.samsung.so
+
+sudo  rm systemv2/system/lib64/libdualcam_refocus_image.so
+sudo  rm systemv2/system/lib64/libae_bracket_hdr.arcsoft.so
+sudo  rm systemv2/system/lib64/libAEBHDR_wrapper.camera.samsung.so
+sudo  rm systemv2/system/lib64/libAIQSolution_MPISingleRGB40.camera.samsung.so
+sudo  rm systemv2/system/lib64/libarcsoft_dualcam_portraitlighting.so
+sudo  rm systemv2/system/lib64/libarcsoft_single_cam_glasses_seg.so
+sudo  rm systemv2/system/lib64/libarcsoft_superresolution_bokeh.so
+sudo  rm systemv2/system/lib64/libDualCamBokehCapture.camera.samsung.so
+sudo  rm systemv2/system/lib64/libenn_wrapper_system.so
+sudo  rm systemv2/system/lib64/libhigh_dynamic_range_bokeh.so
+sudo  rm systemv2/system/lib64/libhighres_enhancement.arcsoft.so
+sudo  rm systemv2/system/lib64/libHREnhancementAPI.camera.samsung.so
+sudo  rm systemv2/system/lib64/libhybrid_high_dynamic_range.arcsoft.so
+sudo  rm systemv2/system/lib64/libhybridHDR_wrapper.camera.samsung.so
+sudo  rm systemv2/system/lib64/libMPISingleRGB40.camera.samsung.so
+sudo  rm systemv2/system/lib64/libMPISingleRGB40Tuning.camera.samsung.so
+sudo  rm systemv2/system/lib64/libRelighting_API.camera.samsung.so
+
+sudo rm -r s20/system/priv-app/SmartManager_v5/
+sudo rm -r s20/system/priv-app/SmartManager_v6_DeviceSecurity/
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/etc/permissions/privapp-permissions-com.samsung.android.applock.xml of=s20/system/etc/permissions/privapp-permissions-com.samsung.android.applock.xml bs=4M status=progress
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/etc/permissions/privapp-permissions-com.samsung.android.sm_cn.xml of=s20/system/etc/permissions/privapp-permissions-com.samsung.android.sm_cn.xml bs=4M status=progress
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/etc/permissions/privapp-permissions-com.samsung.android.sm.devicesecurity.tcm_v6.xml of=s20/system/etc/permissions/privapp-permissions-com.samsung.android.sm.devicesecurity.tcm_v6.xml bs=4M status=progress
+sudo mkdir  s20/system/priv-app/AppLock
+sudo mkdir s20/system/priv-app/SmartManagerCN
+sudo mkdir s20/system/priv-app/SmartManager_v6_DeviceSecurity_CN
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/priv-app/AppLock/AppLock.apk                                                     of=s20/system/priv-app/AppLock/AppLock.apk                  bs=4M status=progress
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/priv-app/SmartManagerCN/SmartManagerCN.apk                                       of=s20/system/priv-app/SmartManagerCN/SmartManagerCN.apk                                    bs=4M status=progress
+sudo dd if=../workshops/modifingApk/build/china/chinese_smart_manager_6_1/priv-app/SmartManager_v6_DeviceSecurity_CN/SmartManager_v6_DeviceSecurity_CN.apk of=s20/system/priv-app/SmartManager_v6_DeviceSecurity_CN/SmartManager_v6_DeviceSecurity_CN.apk                     bs=4M status=progress
+
+
+sudo cp -a ../workshops/modifingApk/build/framework.jar s20/system/framework/framework.jar
+sudo cp -a ../workshops/modifingApk/build/services.jar s20/system/framework/services.jar
+sudo cp -a ../workshops/modifingApk/build/knoxsdk.jar s20/system/framework/knoxsdk.jar
+sudo cp -a ../workshops/modifingApk/build/samsungkeystoreutils.jar s20/system/framework/samsungkeystoreutils.jar
+ad
+
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libSwIsp_core.camera.samsung.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libSwIsp_wrapper_v1.camera.samsung.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libsuperresolution.arcsoft.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libsuperresolution_raw.arcsoft.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libsuperresolution_wrapper_v2.camera.samsung.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libsuperresolutionraw_wrapper_v2.camera.samsung.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libuwsuperresolution.arcsoft.so systemv2/system/lib64/
+
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libMultiFrameProcessing20.camera.samsung.so        systemv2/system/lib64/libMultiFrameProcessing20.camera.samsung.so
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libMultiFrameProcessing20Core.camera.samsung.so    systemv2/system/lib64/libMultiFrameProcessing20Core.camera.samsung.so
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libMultiFrameProcessing20Day.camera.samsung.so     systemv2/system/lib64/libMultiFrameProcessing20Day.camera.samsung.so
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libMultiFrameProcessing20Tuning.camera.samsung.so  systemv2/system/lib64/libMultiFrameProcessing20Tuning.camera.samsung.so
+
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libGeoTrans10.so                                      systemv2/system/lib64/libGeoTrans10.so
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/vendor.samsung_slsi.hardware.geoTransService@1.0.so   systemv2/system/lib64/vendor.samsung_slsi.hardware.geoTransService@1.0.so
+
+sudo cp -a  push ../../Vulcan6.1/vulcans/system/lib64/libStride* systemv2/system/lib64/
+
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libobjectcapture_jni.arcsoft.so systemv2/system/lib64/
+sudo cp -a ../../Vulcan6.1/vulcans/system/lib64/libobjectcapture.arcsoft.so     systemv2/system/lib64/
+
+
+
+also bluetooth

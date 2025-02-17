@@ -1,0 +1,54 @@
+#!/bin/bash
+
+sanitize_path() {
+    local path="$1"
+    echo "${path%/}"
+}
+
+# Sanitize input directories
+dir1=$(sanitize_path "$1")
+dir2=$(sanitize_path "$2")
+
+find_differences () {
+    DIR1="$1"
+    DIR2="$2"
+
+    sudo diff -rqy "$DIR1" "$DIR2" 2>/dev/null | \
+    sed "s/: /\\//g" | sed "s/Only in //g" | sed "s/ differ//g" \
+    | sed "s/Files //g" | sed "s/ and /\\n/g"
+}
+
+move_unique () {
+    if [ "$#" -ne 4 ]; then
+        echo "Usage: move_unique <dir1> <dir1_unique_dest> <dir2> <dir2_unique_dest>"
+        exit 1
+    fi
+
+    dir1=$1
+    dir1u=$2
+    dir2=$3
+    dir2u=$4
+
+    mkdir -p "$dir1u" "$dir2u"
+
+    differences=$(find_differences "$dir1" "$dir2")
+    differences1=$(echo "$differences" | grep "$dir1")
+    differences2=$(echo "$differences" | grep "$dir2")
+
+    echo "$differences1" | sed "s|^$dir1/||" | while read -r filepath; do
+        dir_path=$(dirname "$dir1u/$filepath")
+        sudo mkdir -p "$dir_path"
+        sudo cp -a "$dir1/$filepath" "$dir1u/$filepath"
+        sudo rm -rf $dir1/$filepath    
+    done
+
+    echo "$differences2" | sed "s|^$dir2/||" | while read -r filepath; do
+        dir_path=$(dirname "$dir2u/$filepath")
+        sudo mkdir -p "$dir_path"
+        sudo cp -a "$dir2/$filepath" "$dir2u/$filepath"
+        sudo rm -rf $dir2/$filepath
+    done
+}
+
+move_unique "$dir1" "${dir1}_unique" "$dir2" "${dir2}_unique"
+

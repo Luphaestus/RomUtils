@@ -1,0 +1,11 @@
+sudo cp -a nrom/system/system_ext/etc/selinux/mapping/30.0.cil     vulcans/system/system_ext/etc/selinux/mapping/30.0.cil
+sudo cp -a nrom/system/system_ext/apex/com.android.vndk.v30.apex   vulcans/system/system_ext/apex/com.android.vndk.v30.apex
+sudo cp -a nrom/system/lib64/lib_SoundBooster_ver1050.so           vulcans/system/lib64/lib_SoundBooster_ver1050.so
+sudo cp -a nrom/system/lib/lib_SoundBooster_ver1050.so             vulcans/system/lib/lib_SoundBooster_ver1050.so
+sudo cp -a nrom/system/lib64/libsamsungSoundbooster_plus_legacy.so vulcans/system/lib64/libsamsungSoundbooster_plus_legacy.so
+sudo cp -a nrom/system/lib/libsamsungSoundbooster_plus_legacy.so   vulcans/system/lib/libsamsungSoundbooster_plus_legacy.so
+sudo rm -r vulcans/system/lib/lib_SoundBooster_ver1100.so
+sudo rm -r vulcans/system/lib64/lib_SoundBooster_ver1100.so
+
+
+

@@ -1,0 +1,137 @@
+rm -rf system/app/ARCore
+rm -rf system/app/ARDrawing
+rm -rf system/app/FBAppManager_NS
+rm -rf system/app/PlayAutoInstallConfig
+rm -rf system/app/SamsungCalendar
+rm -rf system/app/SamsungPassAutofill_v1
+rm -rf system/app/SmartReminder
+rm -rf system/app/WebManual
+rm -rf system/bin/fabric_crypto
+rm -rf system/etc/init/fabric_crypto.rc
+rm -rf system/etc/init/samsung_pass_authenticator_service.rc
+rm -rf system/etc/permissions/FabricCryptoLib.xml
+rm -rf system/etc/permissions/privapp-permissions-com.microsoft.skydrive.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.app.kfa.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.authfw.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.carkey.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.dkey.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.game.gamehome.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.kmxservice.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.samsungpass.xml
+rm -rf system/etc/permissions/privapp-permissions-com.samsung.android.spayfw.xml
+rm -rf system/etc/permissions/privapp-permissions-com.sec.android.diagmonagent.xml
+rm -rf system/etc/permissions/privapp-permissions-com.wssyncmldm.xml
+rm -rf system/etc/permissions/privapp-permissions-de.axelspringer.yana.zeropage.xml
+rm -rf system/etc/permissions/privapp-permissions-meta.xml
+rm -rf system/etc/sysconfig/digitalkey.xml
+rm -rf system/etc/sysconfig/meta-hiddenapi-package-allowlist.xml
+rm -rf system/etc/sysconfig/preinstalled-packages-com.samsung.android.dkey.xml
+rm -rf system/etc/sysconfig/preinstalled-packages-com.samsung.android.spayfw.xml
+rm -rf system/etc/sysconfig/samsungauthframework.xml
+rm -rf system/etc/sysconfig/samsungpassapp.xml
+rm -rf system/etc/vintf/manifest/fabric_crypto_manifest.xml
+rm -rf system/framework/arm
+rm -rf system/framework/arm64
+rm -rf system/framework/boot-apache-xml.vdex
+rm -rf system/framework/boot-bouncycastle.vdex
+rm -rf system/framework/boot-core-icu4j.vdex
+rm -rf system/framework/boot-core-libart.vdex
+rm -rf system/framework/boot-esecomm.vdex
+rm -rf system/framework/boot-ext.vdex
+rm -rf system/framework/boot-framework-adservices.vdex
+rm -rf system/framework/boot-framework-graphics.vdex
+rm -rf system/framework/boot-framework.vdex
+rm -rf system/framework/boot-ims-common.vdex
+rm -rf system/framework/boot-knoxsdk.vdex
+rm -rf system/framework/boot-okhttp.vdex
+rm -rf system/framework/boot-QPerformance.vdex
+rm -rf system/framework/boot-tcmiface.vdex
+rm -rf system/framework/boot-telephony-common.vdex
+rm -rf system/framework/boot-telephony-ext.vdex
+rm -rf system/framework/boot-UxPerformance.vdex
+rm -rf system/framework/boot.vdex
+rm -rf system/framework/boot-voip-common.vdex
+rm -rf system/framework/FabricCryptoLib.jar
+rm -rf system/hidden/SmartTutor
+rm -rf system/lib64/com.samsung.security.fabric.cryptod-V1-cpp.so
+rm -rf system/lib64/vendor.samsung.hardware.security.fkeymaster-V1-cpp.so
+rm -rf system/lib64/vendor.samsung.hardware.security.fkeymaster-V1-ndk.so
+rm -rf system/preload
+rm -rf system/priv-app/AuthFramework
+rm -rf system/priv-app/DiagMonAgent91
+rm -rf system/priv-app/DigitalKey
+rm -rf system/priv-app/FBInstaller_NS
+rm -rf system/priv-app/FBServices
+rm -rf system/priv-app/FotaAgent
+rm -rf system/priv-app/GameHome
+rm -rf system/priv-app/KmxService
+rm -rf system/priv-app/KnoxAIFrameworkApp
+rm -rf system/priv-app/OneDrive_Samsung_v3
+rm -rf system/priv-app/PaymentFramework
+rm -rf system/priv-app/SamsungCarKeyFw
+rm -rf system/priv-app/SamsungPass
+rm -rf system/priv-app/Upday
+
+sudo rm -r system/app/BBCAgent
+sudo rm -r system/app/BlockchainBasicKit
+sudo rm -r system/app/MDMApp
+sudo rm -r system/app/MinusOnePage
+sudo rm -r system/app/NfcNci/lib/arm64/libnfc_nxpsn_jni.so
+sudo rm -r system/system/app/NfcNci/lib/arm64/libnfc_sec_jni.so
+sudo rm -r system/app/Notes40
+sudo rm -r system/app/SamsungCalendar
+sudo rm -r system/app/SamsungTTSVoice_de_DE_f00
+sudo rm -r system/app/SamsungTTSVoice_en_GB_f00
+sudo rm -r system/app/SamsungTTSVoice_en_US_l03
+sudo rm -r system/app/SamsungTTSVoice_es_ES_f00
+sudo rm -r system/app/SamsungTTSVoice_es_US_f00
+sudo rm -r system/app/SamsungTTSVoice_fr_FR_f00
+sudo rm -r system/app/SamsungTTSVoice_hi_IN_f00
+sudo rm -r system/app/SamsungTTSVoice_it_IT_f00
+sudo rm -r system/app/SamsungTTSVoice_pl_PL_f00
+sudo rm -r system/app/SamsungTTSVoice_ru_RU_f00
+sudo rm -r system/app/SamsungTTSVoice_th_TH_f00
+sudo rm -r system/app/SamsungTTSVoice_vi_VN_f00
+sudo rm -r system/app/UniversalMDMClient
+sudo rm -r system/etc/permissions/cameraservice.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.app.omcagent.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.ardrawing.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.aremojieditor.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.aremoji.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.arzone.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.kgclient.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.app.networkfilter.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.attestation.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.kpecore.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.mpos.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.pushmanager.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.knox.zt.framework.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.lool.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.android.sm.devicesecurity_v6.xml
+sudo rm -r system/etc/permissions/privapp-permissions-com.samsung.klmsagent.xml
+sudo rm -r system/etc/permissions/sec_camerax_impl.xml
+sudo rm -r system/etc/permissions/sec_camerax_service.xml
+sudo rm -r system/etc/public.libraries-wsm.samsung.txt
+sudo rm -r system/framework/scamera_sep.jar
+sudo rm -r system/framework/sec_camerax_impl.jar
+
+sudo rm -r system/priv-app/KLMSAgent
+sudo rm -r system/priv-app/knoxanalyticsagent
+sudo rm -r system/priv-app/KnoxCore
+sudo rm -r system/priv-app/KnoxMposAgent
+sudo rm -r system/priv-app/KnoxNetworkFilter
+sudo rm -r system/priv-app/KnoxPushManager
+sudo rm -r system/priv-app/knoxvpnproxyhandler
+sudo rm -r system/priv-app/KnoxZtFramework
+sudo rm -r system/priv-app/KPECore
+sudo rm -r system/priv-app/SCameraSDKService
+sudo rm -r system/priv-app/sec_camerax_service
+sudo rm -r system/priv-app/StickerFaceARAvatar
+
+/system_root/system/priv-app/sec_camerax_service
+/system_root/system/priv-app/SCameraSDKService
+/system_root/system/etc/permissions/cameraservice.xml
+/system_root/system/framework/sec_camerax_impl.jar
+/system_root/system/framework/scamera_sep.jar
+/system_root/system/etc/permissions/sec_camerax_service.xml
+/system_root/system/etc/permissions/sec_camerax_impl.xml
