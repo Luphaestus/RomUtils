@@ -5,7 +5,6 @@ sanitize_path() {
     echo "${path%/}"
 }
 
-# Sanitize input directories
 dir1=$(sanitize_path "$1")
 dir2=$(sanitize_path "$2")
 
