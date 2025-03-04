@@ -19,7 +19,7 @@ find_differences () {
 
 move_unique () {
     if [ "$#" -ne 4 ]; then
-        echo "Usage: move_unique <dir1> <dir1_unique_dest> <dir2> <dir2_unique_dest>"
+        echo "Usage: makeCommonImage <dir1> <dir1_unique_dest> <dir2> <dir2_unique_dest>"
         exit 1
     fi
 
