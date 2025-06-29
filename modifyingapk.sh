@@ -18,7 +18,7 @@ process_file_d() {
         mkdir "$outName"
         java -jar ./tools/apktool.jar if -p "$outName" "$file"
     else
-        java -jar ./tools/apktool.jar d -api 34 -b -p res -o "$outName" "$file"
+        java -jar ./tools/apktool.jar d -api 34 -b -p res -o "$outName" --no-res "$file"
 
         if [[ $filename == *"framework"* ]]; then
             unzip -q "$file" "res/*" -d "$outName/unknown"
@@ -37,11 +37,6 @@ process_file_c() {
     file="$1"
     outName="$2"
 
-    directory="$file/dist/"
-    file_path=$(find "$directory" -maxdepth 1 -type f)
-    filename=$(basename "$file_path")
-    file_extension="${filename##*.}"
-
     if [[ "${file: -1}" == "/" ]]; then
     file="${file%?}"
     fi
@@ -49,7 +44,10 @@ process_file_c() {
     java -jar   ./tools/apktool.jar b -c -p res --use-aapt2 "$file"
     mkdir -p ./build
 
-
+    directory="$file/dist/"
+    file_path=$(find "$directory" -maxdepth 1 -type f)
+    filename=$(basename "$file_path")
+    file_extension="${filename##*.}"
 
     if [ -z "$outName" ]; then
         file_path=$(find "$file"/dist/ -maxdepth 1 -type f)
@@ -58,6 +56,7 @@ process_file_c() {
     if [[ "$file_extension" == "jar" ]]; then
         zipalign -f -v -p 4 "$file"/dist/* ./build/"$outName"
     elif [[ "$file_extension" == "apk" ]]; then
+        echo "WARNING: APK signing is not implemented in this script. Please sign the APK manually."
         ./tools/signapk ./tools/aosp_platform.x509.pem ./tools/aosp_platform.pk8 "$file"/dist/* ./build/"$outName"
     fi
 }
